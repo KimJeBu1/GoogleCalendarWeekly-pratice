@@ -5,9 +5,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Routes>
-          <Route path="/" element={<Calendar />} />
-        </Routes>
+        <Route path="/" element={<Calendar />} />
       </Routes>
     </BrowserRouter>
   )

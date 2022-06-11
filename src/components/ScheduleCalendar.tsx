@@ -1,5 +1,5 @@
 import { tDays } from '../../index'
-import { dayOfWeek } from '../util/HoursAday'
+import { dayOfWeek } from '../util/dayOfWeek'
 import { hours24 } from '../util/HoursAday'
 import { removeSchedule, schedules } from '../store/modules/schedule'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,8 +21,8 @@ export default function ScheduleCalendar({
   setIsDeleteOpen: Dispatch<SetStateAction<boolean>>
 }) {
   const dispatch = useDispatch()
-  const scheduleDate = useSelector(schedules)
-  const [deleteMox, setDeleteBox] = useState<{ top: number; left: number }>({ top: 100, left: 100 })
+  const scheduleData = useSelector(schedules)
+  const [deleteBox, setDeleteBox] = useState<{ top: number; left: number }>({ top: 100, left: 100 })
   const [deleteSchedule, setDeleteSchedule] = useState<{ date: string; index: number }>({
     date: '',
     index: 0,
@@ -42,7 +42,7 @@ export default function ScheduleCalendar({
     setIsOpenModal(false)
     setIsDeleteOpen(true)
     setDeleteBox(cursor)
-    setDeleteSchedule(scheduleDate)
+    setDeleteSchedule(scheduleData)
   }
 
   const deleteHandle = () => {
@@ -70,7 +70,7 @@ export default function ScheduleCalendar({
                 <div className="text-center font-light text-2xl p-1">
                   <div
                     className={`w-10 h-10 rounded-full m-auto flex justify-center items-center
-                        ${day.isToday && 'bg-blue-500 text-white'}`}
+                      ${day.isToday && 'bg-blue-500 text-white'}`}
                   >
                     {day.date}
                   </div>
