@@ -1,9 +1,9 @@
 import { tDays } from '../../../index'
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { RootState } from '../index'
 import getCalendar from '../../util/getCalendar'
 import addWeek from '../../util/addWeek'
 import addMonth from '../../util/addMonth'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { RootState } from '../index'
 
 type tCurrent = { day: string; days: tDays[]; year: number; month: number }
 type tCalendar = {
@@ -43,19 +43,19 @@ export const calendarSlice = createSlice({
         ...newDate,
       }
     },
+    nextMonth: state => {
+      const addMonthDate = addMonth(state.current.day, 1)
+      const newDate = createNewDate({ selectDate: state.select, changeDate: addMonthDate })
+      state.current = {
+        day: addMonthDate,
+        ...newDate,
+      }
+    },
     lastWeek: state => {
       const backWeekDate = addWeek(state.current.day, -1)
       const newDate = createNewDate({ selectDate: state.select, changeDate: backWeekDate })
       state.current = {
         day: backWeekDate,
-        ...newDate,
-      }
-    },
-    nextMonth: state => {
-      const addMonthDate = addMonth(state.current.day, -1)
-      const newDate = createNewDate({ selectDate: state.select, changeDate: addMonthDate })
-      state.current = {
-        day: addMonthDate,
         ...newDate,
       }
     },

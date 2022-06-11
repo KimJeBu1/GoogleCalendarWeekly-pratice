@@ -30,7 +30,9 @@ export default function SideCalendar({ days }: { days: tDays[] }) {
                     ${d.isThisMonth ? 'text-stone-900' : 'text-stone-400'}
                     ${d.isSelected && 'bg-blue-100 text-blue-600 rounded-full'}
                     ${d.isToday && 'bg-blue-500 text-white rounded-full'}`}
-                  ></td>
+                  >
+                    {d.date}
+                  </td>
                 ))}
               </tr>
             )}

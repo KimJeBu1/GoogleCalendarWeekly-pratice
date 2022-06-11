@@ -15,8 +15,8 @@ export default function Header({
 }) {
   const dispatch = useDispatch()
   return (
-    <header className="flex items-center p-2 rounded-full hover:bg-slate-100 cursor-pointe">
-      <div className=" flex item-center">
+    <header className="flex items-center justify-between px-2 w-full h-14 border-b border-gray-300">
+      <div className="flex items-center">
         <div
           className="flex items-center p-2 rounded-full hover:bg-slate-100 cursor-pointer"
           onClick={() => setIsSideCalendar(!isSideCalendar)}
@@ -33,7 +33,7 @@ export default function Header({
           className="px-3 py-1 mx-3 border border-gray-200 rounded text-sm"
           onClick={() => dispatch(selectDay(new Date().toString()))}
         >
-          Today
+          오늘
         </button>
         <img
           src="/left.svg"

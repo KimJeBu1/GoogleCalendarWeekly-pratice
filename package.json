@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@svgr/cli": "^6.2.1",
     "autoprefixer": "^9.8.8",
     "craco-alias": "^3.0.1",
     "eslint": "^8.17.0",

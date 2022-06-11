@@ -177,7 +177,7 @@ export default function AddScheduleModal({
             className="ml-auto bg-blue-500 text-white px-5 py-1 text-sm rounded hover:bg-blue-700"
             type="submit"
           >
-            save
+            저장
           </button>
         </div>
       </form>
