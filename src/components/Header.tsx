@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-// import{ lastweek, nextWeek, SelectDay } from '../store/modules/calendar'
+import { lastWeek, nextWeek, selectDay } from '../store/modules/calendar'
 import { Dispatch, SetStateAction } from 'react'
 
 export default function Header({
@@ -31,9 +31,9 @@ export default function Header({
       <div className="flex items-center">
         <button
           className="px-3 py-1 mx-3 border border-gray-200 rounded text-sm"
-          // onClick={() => dispatch(selectDay(new Date().toString()))}
+          onClick={() => dispatch(selectDay(new Date().toString()))}
         >
-          오늘
+          Today
         </button>
         <img
           src="/left.svg"
@@ -41,7 +41,7 @@ export default function Header({
           width={26}
           height={26}
           className="cursor-pointer"
-          // onClick={() => dispatch(lastWeek())}
+          onClick={() => dispatch(lastWeek())}
         />
         <img
           src="/right.svg"
@@ -49,7 +49,7 @@ export default function Header({
           width={26}
           height={26}
           className="cursor-pointer"
-          // onClick={() => dispatch(nextWeek())}
+          onClick={() => dispatch(nextWeek())}
         />
         <span className="text-sm md:text-lg ml-3">
           {year}년 {month}월

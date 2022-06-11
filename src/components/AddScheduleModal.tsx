@@ -5,80 +5,80 @@ import { tRangeColor, tScheduleDetail } from '../../index'
 import { addSchedule } from '../store/modules/schedule'
 
 export default function AddScheduleModal({
-    defaultDate,
-    timeIndex,
-    isOpen,
-    setIsOpen,
+  defaultDate,
+  timeIndex,
+  isOpen,
+  setIsOpen,
 }: {
-        defaultDate: string
-        timeIndex: number
-        isOpen: boolean
-        setIsOpen: Dispatch<SetStateAction<boolean>
-    }) {
-        const dispatch = useDispatch()
-        const [isSelectStartTime, setIsSelectStartTime] = useState<boolean>(false)
-        const [isSelectEndTime, setIsSelectEndTime] = useState<boolean>(false)
+  defaultDate: string
+  timeIndex: number
+  isOpen: boolean
+  setIsOpen: Dispatch<SetStateAction<boolean>>
+}) {
+  const dispatch = useDispatch()
+  const [isSelectStartTime, setIsSelectStartTime] = useState<boolean>(false)
+  const [isSelectEndTime, setIsSelectEndTime] = useState<boolean>(false)
 
-        const [title,setTitle] = useState<string>('')
-        const [date, setDate] = useState<string>('YYYY-MM-DD')
-        const [color, setColor] = useState<tRangeColor>('red')
-        const [starHour, setStartHour] = useState<number>(12)
-        const [startMinute, setStartMinute] = useState<number>(12)
-        const [endHour, setEndHour] = useState<number>(0)
-        const [endMinute, setEndMinute] = useState<number>(0)
+  const [title, setTitle] = useState<string>('')
+  const [date, setDate] = useState<string>('YYYY-MMM-DD')
+  const [color, setColor] = useState<tRangeColor>('red')
+  const [startHour, setStartHour] = useState<number>(12)
+  const [startMinute, setStartMinute] = useState<number>(12)
+  const [endHour, setEndHour] = useState<number>(0)
+  const [endMinute, setEndMinute] = useState<number>(0)
 
-        const [startSelectTimeIndex, setStartSelectTimeIndex] = useState<number>(0)
-        const [endSelectTimeIndex, setEndSelectTimeIndex] = useState<number>(-1)
+  const [startSelectTimeIndex, setStartSelectTimeIndex] = useState<number>(0)
+  const [endSelectTimeIndex, setEndSelectTimeIndex] = useState<number>(-1)
 
-        const [displayStartTime, setDisplayStartTime] = useState<string>('')
-        const [displayEndTime, setDisplayEndTime] = useState<string>('')
+  const [displayStartTime, setDisplayStartTime] = useState<string>('')
+  const [displayEndTime, setDisplayEndTime] = useState<string>('')
 
-        const selectTimes: Array<{ hour: number; minute: string; text: string }> = createSelectTimes()
-        const colors: tRangeColor[] = [ 'red', 'orange', 'green', 'blue', 'brown', 'pink']
+  const selectTimes: Array<{ hour: number; minute: string; text: string }> = createSelectTimes()
+  const colors: tRangeColor[] = ['red', 'orange', 'green', 'blue', 'brown', 'pink']
 
-        const startTimeChange = (hour: number, minute: string, text: string, index: number) => {
-            if (endSelectTimeIndex < index) {
-                endTimeChange(hour, minute, text, index)
-            }
-            setStartSelectTimeIndex(index)
-            setIsSelectStartTime(false)
-            setDisplayStartTime(text)
-            setStartHour(hour)
-            setStartMinute(parseInt(minute))
-        }
+  const startTimeChange = (hour: number, minute: string, text: string, index: number) => {
+    if (endSelectTimeIndex < index) {
+      endTimeChange(hour, minute, text, index)
+    }
+    setStartSelectTimeIndex(index)
+    setIsSelectStartTime(false)
+    setDisplayStartTime(text)
+    setStartHour(hour)
+    setStartMinute(parseInt(minute))
+  }
 
-        const endTimeChange = (hour: number, minute: string, text: string, index: number) => {
-            setEndSelectTimeIndex(index)
-            setIsSelectEndTime(false)
-            setDisplayEndTime(text)
-            setEndHour(hour)
-            setEndMinute(parseInt(minute))
-        }
+  const endTimeChange = (hour: number, minute: string, text: string, index: number) => {
+    setEndSelectTimeIndex(index)
+    setIsSelectEndTime(false)
+    setDisplayEndTime(text)
+    setEndHour(hour)
+    setEndMinute(parseInt(minute))
+  }
 
-        const submitHandle = (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault()
-            setIsOpen(false)
-            setTitle('')
-            const schedule: { date: string; data: tScheduleDetail } =  {
-                date: date,
-                data: {
-                    start: { hour: starHour, minute: startMinute },
-                    end: { hour: endHour, minute: endMinute },
-                    color: color,
-                    title: title,
-                },
-            }
-            dispatch(addSchedule(schedule))
-        }
+  const submitHandle = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsOpen(false)
+    setTitle('')
+    const schedule: { date: string; data: tScheduleDetail } = {
+      date: date,
+      data: {
+        start: { hour: startHour, minute: startMinute },
+        end: { hour: endHour, minute: endMinute },
+        color: color,
+        title: title,
+      },
+    }
+    dispatch(addSchedule(schedule))
+  }
 
-        useEffect(() => {
-            setDate(defaultDate)
-            const defaultTime = selectTimes[timeIndex]
-            startTimeChange(defaultTime.hour, defaultTime.minute, defaultTime.text, timeIndex)
-        }, [defaultDate, timeIndex])
+  useEffect(() => {
+    setDate(defaultDate)
+    const defaultTime = selectTimes[timeIndex]
+    startTimeChange(defaultTime.hour, defaultTime.minute, defaultTime.text, timeIndex)
+  }, [defaultDate, timeIndex])
 
-        return (
-            <div
+  return (
+    <div
       className={`
         ${isOpen ? 'fixed' : 'hidden'} 
         shadow-2xl rounded-lg z-50 top-[150px] left-8 m-auto w-[350px] bg-white flex flex-col`}
@@ -177,10 +177,10 @@ export default function AddScheduleModal({
             className="ml-auto bg-blue-500 text-white px-5 py-1 text-sm rounded hover:bg-blue-700"
             type="submit"
           >
-            저장
+            save
           </button>
         </div>
       </form>
     </div>
-        )
-    }
+  )
+}

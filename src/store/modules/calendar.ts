@@ -79,7 +79,7 @@ export const calendarSlice = createSlice({
   },
 })
 
-export const { selectDay } = calendarSlice.actions
+export const { nextWeek, nextMonth, lastWeek, lastMonth, selectDay } = calendarSlice.actions
 export const currentCalendar = (state: RootState) => state.calendar.current
 
 export default calendarSlice.reducer
