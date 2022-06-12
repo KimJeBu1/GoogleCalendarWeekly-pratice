@@ -17,10 +17,7 @@ export default function Header({
   return (
     <header className="flex items-center  p-2 w-full h-14 border-b border-gray-300">
       <div className="flex items-center">
-        <div
-          className="flex items-center p-2 rounded-full hover:bg-slate-100 cursor-pointer"
-          onClick={() => setIsSideCalendar(!isSideCalendar)}
-        >
+        <div className="flex items-center p-2 rounded-full">
           <img src="/menu.svg" alt="menu" width={24} height={24} />
         </div>
         <div className="flex items-center ml-3">
