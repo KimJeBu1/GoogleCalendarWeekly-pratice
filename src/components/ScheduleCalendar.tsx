@@ -79,9 +79,9 @@ export default function ScheduleCalendar({
             ))}
           </div>
           <div className="flex flex-1">
-            <div className="bg-white sticky left-0 top-0 w-20 min-w-[70px] w-[70px] bg-white z-10">
+            <div className=" sticky left-0 top-0 w-20 min-w-[70px] w-[70px] z-10">
               {hours24.map(hour => (
-                <div className="font-light text-[12px] h-[60px] text-right pr-2" key={hour.text}>
+                <div className="font-light text-[12px] h-20 text-right pr-2" key={hour.text}>
                   {hour.text}시
                 </div>
               ))}
