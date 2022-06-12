@@ -28,7 +28,7 @@ export default function SideCalendar({ days }: { days: tDays[] }) {
                     onClick={() => dispatch(selectDay(new Date(d.day).toString()))}
                     className={`px-2 py-2 text-xs text-center cursor-pointer
                     ${d.isThisMonth ? 'text-stone-900' : 'text-stone-400'}
-                    ${d.isSelected && 'bg-blue-100 text-blue-600 rounded-full'}
+                    ${d.isSelected && 'bg-blue-10 text-blue-600 rounded-full'}
                     ${d.isToday && 'bg-blue-500 text-white rounded-full'}`}
                   >
                     {d.date}

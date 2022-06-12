@@ -11,11 +11,11 @@ export default function AddScheduleButton({
 }) {
   return (
     <div
-      className={`fixed z-50 top-[60px] left-0 bg-white h-[70px] flex items-center 
-        ${isSideCalendar ? 'w-[320px] justify-start pl-5' : 'w-[70px] justify-center'}`}
+      className={`fixed z-50 mt-1.5 left-0 bg-white flex items-center 
+        ${isSideCalendar ? 'w-[320px] justify-start pl-4' : 'w-[70px] justify-center'}`}
     >
       <button
-        className={`border shadow-md bg-white w-14 h-14 rounded-full hover:shadow-xl
+        className={`border shadow-md bg-white w-14 h-14 rounded-full 
         ${isSideCalendar && 'hidden'}`}
         onClick={() => setIsOpenModal(!isOpenModal)}
       >
@@ -33,7 +33,7 @@ export default function AddScheduleButton({
       </button>
       <button
         className={`border  bg-white w-32
-          h-14 rounded-full  flex items-center px-2
+          h-12 rounded-full  flex items-center px-2
           ${!isSideCalendar && 'hidden'}`}
         onClick={() => setIsOpenModal(!isOpenModal)}
       >

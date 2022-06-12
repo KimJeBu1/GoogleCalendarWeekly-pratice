@@ -15,7 +15,7 @@ export default function Header({
 }) {
   const dispatch = useDispatch()
   return (
-    <header className="flex items-center justify-between px-2 w-full h-14 border-b border-gray-300">
+    <header className="flex items-center  p-2 w-full h-14 border-b border-gray-300">
       <div className="flex items-center">
         <div
           className="flex items-center p-2 rounded-full hover:bg-slate-100 cursor-pointer"
@@ -25,12 +25,12 @@ export default function Header({
         </div>
         <div className="flex items-center ml-3">
           <img src="/calendar.svg" alt="logo" width={30} height={30} />
-          <h1 className="ml-2 text-lg text-gray-500 hidden md:block">캘린더</h1>
+          <h1 className="ml-3 text-lg text-gray-500 ">캘린더</h1>
         </div>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center ml-20">
         <button
-          className="px-3 py-1 mx-3 border border-gray-200 rounded text-sm"
+          className="px-3 py-1 mx-3 border border-gray-200 rounded"
           onClick={() => dispatch(selectDay(new Date().toString()))}
         >
           오늘
@@ -55,7 +55,6 @@ export default function Header({
           {year}년 {month}월
         </span>
       </div>
-      <span className="px-3 py-1 mx-3 border border-gray-200 rounded text-sm">주</span>
     </header>
   )
 }

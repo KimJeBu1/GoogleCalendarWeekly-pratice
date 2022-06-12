@@ -32,7 +32,7 @@ export default function Calendar() {
           isOpenModal={isOpenModal}
           setIsOpenModal={setIsOpenModal}
         />
-        <div className={`p-5 flex flex-col mt-[65px] ${isSideCalendar ? 'block' : 'hidden'}`}>
+        <div className={`p-5 flex flex-col ${isSideCalendar ? 'block' : 'hidden'}`}>
           <SideCalendarTitle year={year} month={month} />
           <SideCalendar days={days} />
         </div>
